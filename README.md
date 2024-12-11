@@ -20,7 +20,7 @@
 - When user opens a webpage, the server returns an HTML file to the browser.<br>
 - The browser reads the file and constructs the DOM.<br>
 - DOM methods and JavaScript is used to listen to user events and manipulate the DOM by- adding, updating and removing specific user elements.<br>
-![Screenshot 2024-12-09 121459](https://github.com/user-attachments/assets/5f9d28a8-c19d-4575-ad86-c6742395f6d6)
+
 
 <h2>First Step</h2>
 - I used VS code to create an index.html file.<br>
@@ -62,14 +62,33 @@
 
 ![Screenshot 2024-12-09 144845](https://github.com/user-attachments/assets/f83ed5ab-16db-49e2-98fd-99eb1acc0729)
 
-<h2>🧐 Features</h2>
+<h2>Step 4</h2>
+- React props are informations passed as properties to React components.<br>
+- In the HomePage component, a title prop is added to the Header component.<br>
+- The value of the prop is then passed as Header function parameter. <br>
+- Curly braces({}) is used to pass the prop value, so that we can use javascript inside the JSX markup. <br>
+- An array of names is added to the HomePage component.<br>
+- array.map method iterates through the array and the arrow function maps the array items to a list.<br>
+- A key prop is used as React needs something unique to identify items in an array so it knows what to update in the DOM. <br>
+![Screenshot 2024-12-11 094425](https://github.com/user-attachments/assets/6563121f-1d84-40ee-afb7-243ce1e9f17f)
 
-Here're some of the project's best features:
+<h2>Step 5</h2>
+- A like button element is added to the return statement of the HomePage component.<br>
+- For the button to do something, onClick() event is added.<br>
+- A handleClick() function is added and called when button is clicked.<br>
+- <b>Hooks</b> is a set of functions in React.<br>
+- Hooks add additional logic, like - <b>state</b> to the components.<br>
+- <b>State</b> is any information in the UI that changes according to user interactions.<br>
+- React hook useState() is used to store and increment the number of times the user has clicked the Like button.<br>
+- The useState funtion returns an array. The first item in the array is the state value and the second item is a function to update the value.<br>
+- The initial state value is set to 0 and passed inside the component.<br>
+- Then the state updater function, in this case - setLikes, is called in handleClick() and it increments the like value.<br>
 
-*   Like button
-*   When clicked the click number shows beside the like button
+![Screenshot 2024-12-11 104803](https://github.com/user-attachments/assets/0a827796-d716-457c-9052-0f55b48a5d6e)
 
-<h2>🛠️ Installation Steps:</h2>
+
+<h2>Step 6</h2>
+<h3>🛠️ Installations:</h3>
 
 <p>1. create package.json file</p>
 
@@ -82,3 +101,47 @@ Here're some of the project's best features:
 ```
 npm install react@latest react-dom@latest next@latest
 ```
+- Since react and reactDom packages were installed using npm package manager, the scripts are removed.
+- html and body tags, babel scripts, React. part of useState(), document.getElementBy() are all removed.
+- File name is changed from index.html to index.js.
+- Next.js uses file system routing so instead of code the application uses files and folders for routing.
+- To create the page, a folder called app is opened and the index.js file is moved into it and renamed page.js. The folder and file has to be named that way since that is the framework of Next.js.(I tried to name the folder something else and the code didnt run)
+<p>Add this line to the top of the file</p>
+
+```
+import { useState } from 'react';
+```
+- Add export default to the <HomePage> component, to help Next.js to distinguish which component to render as the main component of the page.
+- Add a "next dev" script to package.json file
+  ![Screenshot 2024-12-11 113030](https://github.com/user-attachments/assets/dce946c4-f7ed-4c25-97db-b0cd9289af01)
+  ![Screenshot 2024-12-11 113131](https://github.com/user-attachments/assets/90a68c33-7551-42ff-b465-31fb1b5ece09)
+![Screenshot 2024-12-11 113146](https://github.com/user-attachments/assets/5ac57c11-e44c-4b69-bd9d-4149a75add90)
+
+- A layout.js file is automatically created in the app folder.
+
+<h2>Step 7</h2>
+- <b>Client</b> refers to the browser on the user's device that sends a request to the server for the application code, it then turns the server response into an interface the user can interact with. <br>
+- <b>Server</b> refers to the computer in a data center that stores the application code.<br>
+- React components are split into two module graphs<br>
+1. <b>Server module graph</b> contains all the server components that are rendered on the server. <br>
+2. <b>Client module graph</b> contains all the client components.<br>
+- Next.js uses server components by default.<br>
+- useState() is a client component, so to be able to use it we need to shift the interactive like button to client component.<br>
+- A file named like-button.js is created inside the app folder and LikeButton() is exported.<br>
+- the button element and handleClick() function is moved from page.js to LikeButton() component.<br>
+- the "import { useState } from 'react';" is also moved.<br>
+- To make the like button a client component, the React directive 'use Client'; is used at the top of the file.<br>
+- In the page.js file, the LikeButton() is imported.<br>
+<p>Now run the server, by writing the following line in the command prompt</p>
+
+```
+npm run dev
+```
+- This will compile and give link to localhost:3000
+- go to link, to see the application work.
+
+![Screenshot 2024-12-11 131042](https://github.com/user-attachments/assets/2d9868e7-994c-4ed7-8819-997b47b8f656)
+![Screenshot 2024-12-11 131056](https://github.com/user-attachments/assets/dc4bc8ca-27ab-450c-87fd-1d78ea1afa6c)
+
+
+<h2>:partying_face: Project DONE!!!</h2>
